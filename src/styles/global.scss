@@ -1,0 +1,33 @@
+@import './varables';
+
+:root {
+  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: $backgroundColor;
+  color: $textColor;
+}
+
+a {
+  display: inline-block;
+  color: inherit;
+  text-decoration: none;
+  height: fit-content;
+  cursor: default;
+}
+
+@media (min-width: 600px) {
+  a,
+  bottom {
+    cursor: pointer;
+  }
+}

@@ -1,0 +1,72 @@
+@import './varables';
+
+.container {
+  display: flex;
+  height: 150px;
+  padding: 0.8em;
+  gap: 1em;
+  background-color: $themBackground;
+  border-bottom: 1px solid $borderColor;
+  border: 1px solid $borderColor;
+  margin-top: 1em;
+  border-radius: 10px;
+
+  a {
+    height: 100%;
+    display: flex;
+    align-items: center;
+  }
+
+  img {
+    width: 100%;
+    max-width: 160px;
+    border-radius: 10px;
+  }
+
+  .info {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 150px;
+    margin-top: 1em;
+  }
+
+  .prevPrice {
+    font-size: 0.9rem;
+    opacity: 0.8;
+  }
+
+  .discount {
+    background-color: $opacityThemColor;
+    color: $themColor;
+    margin-left: 10px;
+    padding: 0.2em;
+    border-radius: 6px;
+    font-weight: 700;
+    border: 0.1111px solid $themColor;
+  }
+
+  .price {
+    font-size: 1.3rem;
+    margin-top: 6px;
+    font-weight: 700;
+  }
+}
+
+@media (min-width: 600px) {
+  .container {
+    height: fit-content;
+    flex-direction: column;
+    max-width: 230px;
+    background-color: $themBackground;
+    border: 1px solid $borderColor;
+    margin-top: 1em;
+    border-radius: 10px;
+    padding: 0.5em;
+
+    img {
+      width: 100%;
+      max-width: 300px;
+    }
+  }
+}

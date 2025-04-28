@@ -1,0 +1,38 @@
+{
+  "users": [
+    {
+      "userId": 1,
+      "role": "admin",
+      "username": "mmd_yavarii@gmail.com",
+      "password": "m12345678",
+      "id": "ce4c"
+    },
+    {
+      "userId": 1,
+      "role": "user",
+      "username": "sepehr@gmail.com",
+      "password": "sep123123",
+      "id": "ef94"
+    }
+  ],
+  "products": [
+    {
+      "id": "e48ed9f5-f5a4-494b-bb40-0855c5a39699",
+      "name": "this is a test product",
+      "image": "https://www.autotrainingcentre.com/wp-content/uploads/2014/02/Automotive-training.jpg",
+      "rating": 5.4,
+      "category": "clothing",
+      "price": 300,
+      "discount": 0.8
+    },
+    {
+      "id": "216bfdf9-cf3a-4d97-b02c-64a1d9a71214",
+      "name": "this is a test product 2",
+      "image": "https://media.cdn-jaguarlandrover.com/api/v2/images/55880/w/680.jpg",
+      "rating": 2.4,
+      "category": "clothing",
+      "price": 300,
+      "discount": 0
+    }
+  ]
+}
