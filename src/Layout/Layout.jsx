@@ -25,7 +25,7 @@ function Layout({ children }) {
             <LiaUserCogSolid opacity="0.6" fontSize="1.3rem" />
           </Link>
 
-          <Link>
+          <Link to="/login">
             <FaRegUser opacity="0.6" />
           </Link>
         </div>

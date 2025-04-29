@@ -16,7 +16,7 @@ function ProductCard({ info }) {
 
       <div>
         <div>
-          <Link to="">
+          <Link to={`/${id}`} state={encodeInfo}>
             <h4>{name}</h4>
           </Link>
 
