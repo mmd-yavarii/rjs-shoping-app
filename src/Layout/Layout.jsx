@@ -20,15 +20,17 @@ function Layout({ children }) {
           <p>Explore</p>
         )}
 
-        <div className={styles.buttons}>
-          <Link>
-            <LiaUserCogSolid opacity="0.6" fontSize="1.3rem" />
-          </Link>
+        {pathname != '/login' && pathname != '/signup' && (
+          <div className={styles.buttons}>
+            <Link>
+              <LiaUserCogSolid opacity="0.6" fontSize="1.3rem" />
+            </Link>
 
-          <Link to="/login">
-            <FaRegUser opacity="0.6" />
-          </Link>
-        </div>
+            <Link to="/login">
+              <FaRegUser opacity="0.6" />
+            </Link>
+          </div>
+        )}
       </header>
 
       {children}
