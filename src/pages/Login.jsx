@@ -1,11 +1,12 @@
 import { useRef, useState } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, replace, useNavigate } from 'react-router-dom';
 
 import { BsEye, BsEyeSlash } from 'react-icons/bs';
 
 import styles from '../styles/Form.module.scss';
 import { PulseLoader } from 'react-spinners';
 import { getUserFromServer } from '../helper/helper';
+import { useLogin } from '../context/LoginProvider';
 
 function Login() {
   const usernameInp = useRef();
@@ -16,15 +17,20 @@ function Login() {
 
   const navigate = useNavigate();
 
+  const [userInfo, setUserInfo] = useLogin();
+
   // login handler
   async function loginHandler() {
-    const user = await getUserFromServer(username.current, password.current);
+    if (username.current && password.current) {
+      const user = await getUserFromServer(username.current, password.current);
 
-    if (user.length) {
-      localStorage.setItem('user', JSON.stringify(user));
-      navigate('/');
-    } else {
-      alert('No user found with the provided information');
+      if (user.length) {
+        localStorage.setItem('user', JSON.stringify(user));
+        setUserInfo(user);
+        navigate('/profile', { replace: true });
+      } else {
+        alert('No user found with the provided information');
+      }
     }
   }
 

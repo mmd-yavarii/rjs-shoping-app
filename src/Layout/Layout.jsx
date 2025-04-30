@@ -5,7 +5,7 @@ import { LiaUserCogSolid } from 'react-icons/lia';
 import styles from './Layout.module.scss';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 
-function Layout({ children }) {
+function Layout({ children, userRole }) {
   const navigate = useNavigate();
   const { pathname } = useLocation();
 
@@ -20,11 +20,13 @@ function Layout({ children }) {
           <p>Explore</p>
         )}
 
-        {pathname != '/login' && pathname != '/signup' && (
+        {pathname != '/login' && pathname != '/signup' && pathname != '/profile' && (
           <div className={styles.buttons}>
-            <Link>
-              <LiaUserCogSolid opacity="0.6" fontSize="1.3rem" />
-            </Link>
+            {userRole == 'admin' && (
+              <Link to="">
+                <LiaUserCogSolid opacity="0.6" fontSize="1.3rem" />
+              </Link>
+            )}
 
             <Link to="/login">
               <FaRegUser opacity="0.6" />

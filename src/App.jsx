@@ -5,18 +5,22 @@ import Layout from './Layout/Layout';
 import Login from './pages/Login';
 import Signup from './pages/Signup';
 import Profile from './pages/Profile';
+import { useLogin } from './context/LoginProvider';
 
 function App() {
-  const isLogin = false;
+  const [userInfo] = useLogin();
+
+  const isLogin = userInfo?.length > 0;
+  const userRole = userInfo?.[0]?.role ?? '';
 
   return (
-    <Layout>
+    <Layout userRole={userRole}>
       <Routes>
         <Route index element={<Products />} />
         <Route path="/:productId" element={<ProductDetail />} />
         <Route path="/login" element={isLogin ? <Navigate to="/profile" replace={true} /> : <Login />} />
         <Route path="/signup" element={isLogin ? <Navigate to="/profile" replace={true} /> : <Signup />} />
-        <Route path="/profile" element={<Profile />} />
+        <Route path="/profile" element={isLogin ? <Profile /> : <Navigate to="/login" replace={true} />} />
       </Routes>
     </Layout>
   );

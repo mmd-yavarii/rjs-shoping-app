@@ -10,6 +10,7 @@ import { getUserFromServer } from '../helper/helper';
 import { PulseLoader } from 'react-spinners';
 
 import { v4 as uuidv4 } from 'uuid';
+import { useLogin } from '../context/LoginProvider';
 
 function Signup() {
   const usernameInp = useRef();
@@ -18,6 +19,8 @@ function Signup() {
   const repassword = useRef('');
   const [showPass, setShowPass] = useState(false);
   const [isLoading, setIsloading] = useState(false);
+
+  const [userInfo, setUserInfo] = useLogin();
 
   const navigate = useNavigate();
 
@@ -35,17 +38,17 @@ function Signup() {
 
       const existanceuser = await getUserFromServer(username.current, password.current);
 
-      localStorage.setItem('user', JSON.stringify(userData));
-
       if (existanceuser.length) {
         alert('you already have an account');
       } else {
         axios
           .post(signUpApi, userData)
           .then((res) => {
-            navigate('/');
+            localStorage.setItem('user', JSON.stringify(userData));
+            setUserInfo([res]);
+            navigate('/profile', { replace: true });
           })
-          .catch((err) => alert('An Error occurred'));
+          .catch((err) => console.log(err));
       }
     } else {
       alert('please fill in form correctly ');
