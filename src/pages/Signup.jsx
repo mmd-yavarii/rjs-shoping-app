@@ -1,79 +1,98 @@
-import { useRef, useState } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import { useEffect, useRef, useState } from 'react';
 
-import { BsEye, BsEyeSlash } from 'react-icons/bs';
+import styles from '../styles/Auth.module.scss';
 
-import styles from '../styles/Form.module.scss';
-import axios from 'axios';
-import { signUpApi } from '../api/urls';
-import { getUserFromServer } from '../helper/helper';
+import { Link } from 'react-router-dom';
 import { PulseLoader } from 'react-spinners';
 
-import { v4 as uuidv4 } from 'uuid';
-import { useLogin } from '../context/LoginProvider';
+import { AiOutlineEye, AiOutlineEyeInvisible } from 'react-icons/ai';
+import { emailValidation, passwordValidation } from '../helper/functions';
 
 function Signup() {
-  const usernameInp = useRef();
-  const username = useRef('');
-  const password = useRef('');
-  const repassword = useRef('');
-  const [showPass, setShowPass] = useState(false);
-  const [isLoading, setIsloading] = useState(false);
+  const firstInp = useRef();
+  const email = useRef();
+  const password = useRef();
+  const confirmPassword = useRef();
 
-  const [userInfo, setUserInfo] = useLogin();
+  const [isLoading, setIsLoading] = useState(false);
 
-  const navigate = useNavigate();
+  const [visablePass, setVisablePass] = useState(false);
+  const [visableConf, setVisableConf] = useState(false);
 
-  // handle sign up
-  async function signUpHandler() {
-    if (password.current === repassword.current && password.current && repassword.current && username.current) {
-      setIsloading(true);
+  useEffect(() => firstInp.current.focus(), []);
 
-      const userData = {
-        role: 'user',
-        username: username.current,
-        password: password.current,
-        id: uuidv4(),
-      };
+  const [isEmailValied, setIsEmailValied] = useState(false);
+  const [isPasswordValied, setIsPasswordValied] = useState(false);
+  const [isConfirmValied, setIsConfirmValied] = useState(false);
 
-      const existanceuser = await getUserFromServer(username.current, password.current);
+  // email input handler
+  function emailInpHandler(event) {
+    setIsEmailValied(emailValidation(event.target.value));
+    email.current = event.target.value;
+  }
 
-      if (existanceuser.length) {
-        alert('you already have an account');
-      } else {
-        axios
-          .post(signUpApi, userData)
-          .then((res) => {
-            localStorage.setItem('user', JSON.stringify(userData));
-            setUserInfo([res]);
-            navigate('/profile', { replace: true });
-          })
-          .catch((err) => console.log(err));
-      }
-    } else {
-      alert('please fill in form correctly ');
-    }
-    setIsloading(false);
+  // password input handler
+  function passwordInpHandler(event) {
+    setIsPasswordValied(passwordValidation(event.target.value));
+    password.current = event.target.value;
+  }
+
+  // confirm input handler
+  function confirmInpHandler(event) {
+    setIsConfirmValied(passwordValidation(event.target.value));
+    confirmPassword.current = event.target.value;
   }
 
   return (
-    <div className={styles.formLogin}>
-      <h4>Sign Up</h4>
+    <div className={styles.container}>
+      <h4 className={styles.title}>Create an account</h4>
 
-      <input type="text" placeholder="username" ref={usernameInp} onChange={(e) => (username.current = e.target.value)} />
-      <div className={styles.inp}>
-        <input type={showPass ? 'text' : 'password'} placeholder="password" onChange={(e) => (password.current = e.target.value)} />
-        {<div onClick={() => setShowPass((prev) => !prev)}>{showPass ? <BsEyeSlash /> : <BsEye />}</div>}
+      <div className={styles.inputsContainer}>
+        <input type="text" placeholder="email" onChange={emailInpHandler} className={isEmailValied ? 'success-inp' : 'error-inp'} ref={firstInp} />
+
+        {/* passwor input  */}
+        <div className={styles.passinp}>
+          <input
+            type={visablePass ? 'text' : 'password'}
+            placeholder="password"
+            onChange={passwordInpHandler}
+            className={isPasswordValied ? 'success-inp' : 'error-inp'}
+          />
+          {visablePass ? (
+            <AiOutlineEyeInvisible onClick={() => setVisablePass(!visablePass)} size="1.3rem" opacity="0.5" className={styles.eye} />
+          ) : (
+            <AiOutlineEye onClick={() => setVisablePass(!visablePass)} size="1.3rem" opacity="0.5" className={styles.eye} />
+          )}
+        </div>
+
+        {/* conform password input */}
+        <div className={styles.passinp}>
+          <input
+            type={visableConf ? 'text' : 'password'}
+            placeholder="confirm password"
+            onChange={confirmInpHandler}
+            className={isConfirmValied ? 'success-inp' : 'error-inp'}
+          />
+          {visableConf ? (
+            <AiOutlineEyeInvisible onClick={() => setVisableConf(!visableConf)} size="1.3rem" opacity="0.5" className={styles.eye} />
+          ) : (
+            <AiOutlineEye onClick={() => setVisableConf(!visableConf)} size="1.3rem" opacity="0.5" className={styles.eye} />
+          )}
+        </div>
+
+        <div className={styles.messageContteiner}>
+          <span className={styles.message}>Please use at least 8 characters.</span>
+          <span className={styles.message}>Include both uppercase and lowercase letters. </span>
+          <span className={styles.message}>Include numbers as well.</span>
+        </div>
       </div>
-      <div className={styles.inp}>
-        <input type={showPass ? 'text' : 'password'} placeholder="confirm lpassword" onChange={(e) => (repassword.current = e.target.value)} />
+
+      <div className={styles.linksContainer}>
+        <button className="them-btn">{isLoading ? <PulseLoader size="0.7rem" color="#fff" /> : 'Sign up'}</button>
+        <Link to="/login" replace={true}>
+          Already have an account
+        </Link>
       </div>
-
-      <button onClick={signUpHandler}>{isLoading ? <PulseLoader color="#fff" size="0.6rem" /> : 'Sign Up'}</button>
-
-      <Link to="/login" replace={true}>
-        Already have an account ?
-      </Link>
     </div>
   );
 }

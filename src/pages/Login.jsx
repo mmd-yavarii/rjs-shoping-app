@@ -1,54 +1,73 @@
-import { useRef, useState } from 'react';
-import { Link, replace, useNavigate } from 'react-router-dom';
+import { useEffect, useRef, useState } from 'react';
 
-import { BsEye, BsEyeSlash } from 'react-icons/bs';
+import styles from '../styles/Auth.module.scss';
 
-import styles from '../styles/Form.module.scss';
+import { Link } from 'react-router-dom';
 import { PulseLoader } from 'react-spinners';
-import { getUserFromServer } from '../helper/helper';
-import { useLogin } from '../context/LoginProvider';
 
-function Login() {
-  const usernameInp = useRef();
-  const username = useRef('');
-  const password = useRef('');
-  const [showPass, setShowPass] = useState(false);
-  const [isLoading, setIsloading] = useState(false);
+import { AiOutlineEye, AiOutlineEyeInvisible } from 'react-icons/ai';
+import { emailValidation, passwordValidation } from '../helper/functions';
 
-  const navigate = useNavigate();
+function Login({}) {
+  const firstInp = useRef();
+  const email = useRef();
+  const password = useRef();
 
-  const [userInfo, setUserInfo] = useLogin();
+  const [isLoading, setIsLoading] = useState(true);
+  const [visablePass, setVisablePass] = useState(false);
 
-  // login handler
-  async function loginHandler() {
-    if (username.current && password.current) {
-      const user = await getUserFromServer(username.current, password.current);
+  useEffect(() => firstInp.current.focus(), []);
 
-      if (user.length) {
-        localStorage.setItem('user', JSON.stringify(user));
-        setUserInfo(user);
-        navigate('/profile', { replace: true });
-      } else {
-        alert('No user found with the provided information');
-      }
-    }
+  const [isEmailValied, setIsEmailValied] = useState(false);
+  const [isPasswordValied, setIsPasswordValied] = useState(false);
+
+  // email input handler
+  function emailInpHandler(event) {
+    setIsEmailValied(emailValidation(event.target.value));
+    email.current = event.target.value;
+  }
+
+  // email input handler
+  function passwordInpHandler(event) {
+    setIsPasswordValied(passwordValidation(event.target.value));
+    password.current = event.target.value;
   }
 
   return (
-    <div className={styles.formLogin}>
-      <h4>Login</h4>
+    <div className={styles.container}>
+      <h4 className={styles.title}>Login here</h4>
 
-      <input type="text" placeholder="username" ref={usernameInp} onChange={(e) => (username.current = e.target.value)} />
-      <div className={styles.inp}>
-        <input type={showPass ? 'text' : 'password'} placeholder="password" onChange={(e) => (password.current = e.target.value)} />
-        {<div onClick={() => setShowPass((prev) => !prev)}>{showPass ? <BsEyeSlash /> : <BsEye />}</div>}
+      <div className={styles.inputsContainer}>
+        <input type="text" placeholder="email" onChange={emailInpHandler} ref={firstInp} className={isEmailValied ? 'success-inp' : 'error-inp'} />
+
+        {/* password input  */}
+        <div className={styles.passinp}>
+          <input
+            type={visablePass ? 'text' : 'password'}
+            placeholder="password"
+            onChange={passwordInpHandler}
+            className={isPasswordValied ? 'success-inp' : 'error-inp'}
+          />
+          {visablePass ? (
+            <AiOutlineEyeInvisible onClick={() => setVisablePass(!visablePass)} size="1.3rem" opacity="0.5" className={styles.eye} />
+          ) : (
+            <AiOutlineEye onClick={() => setVisablePass(!visablePass)} size="1.3rem" opacity="0.5" className={styles.eye} />
+          )}
+        </div>
+
+        <div className={styles.messageContteiner}>
+          <span className={styles.message}>Please use at least 8 characters.</span>
+          <span className={styles.message}>Include both uppercase and lowercase letters. </span>
+          <span className={styles.message}>Include numbers as well.</span>
+        </div>
       </div>
 
-      <button onClick={loginHandler}>{isLoading ? <PulseLoader color="#fff" size="0.6rem" /> : 'Login'}</button>
-
-      <Link to="/signup" replace={true}>
-        Don't have an account ?
-      </Link>
+      <div className={styles.linksContainer}>
+        <button className="them-btn">{isLoading ? <PulseLoader size="0.7rem" color="#fff" /> : 'Sign in'}</button>
+        <Link to="/signup" replace={true}>
+          Create new account
+        </Link>
+      </div>
     </div>
   );
 }
