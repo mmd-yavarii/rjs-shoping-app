@@ -1,6 +1,8 @@
 @import './varables';
 
 .container {
+  max-width: 400px;
+  margin: auto;
   height: 90dvh;
   display: flex;
   align-items: center;

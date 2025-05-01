@@ -83,3 +83,15 @@ input {
   background-color: $them-color;
   color: #ffff;
 }
+
+.active {
+  color: $them-color;
+  opacity: 1;
+}
+
+@media (max-width: 700px) {
+  a,
+  button {
+    cursor: default;
+  }
+}

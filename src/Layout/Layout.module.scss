@@ -1,0 +1,70 @@
+@import '../styles/varables';
+
+// footer for mobile style
+.mobileFooter {
+  background-color: $background-color;
+  box-shadow: 0 -2px 12px -10px $muted-text-color;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  padding: 16px;
+  font-size: 1.4rem;
+  z-index: 3;
+}
+
+// footer for pc style
+.pcFooter {
+  font-weight: 500;
+  background-color: $background-color;
+  box-shadow: 0 2px 12px -10px $muted-text-color;
+  border-radius: 10px;
+  display: none;
+  padding: 10px;
+  height: 60px;
+  z-index: 3;
+  position: sticky;
+  top: 0px;
+  width: 100%;
+  align-items: center;
+  justify-content: space-between;
+  max-width: 1000px;
+
+  .add {
+    background-color: $them-color;
+    padding: 5px 10px;
+    font-weight: 600;
+    border-radius: 10px;
+    font-size: 0.8rem;
+    color: #ffff;
+  }
+
+  div {
+    width: 40%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    a {
+      margin: 0 10px;
+    }
+  }
+
+  input {
+    border-radius: 50px;
+    width: 50%;
+    padding: 0.5em;
+  }
+}
+
+// responsive
+@media (min-width: 700px) {
+  .pcFooter {
+    display: flex;
+  }
+  .mobileFooter {
+    display: none;
+  }
+}

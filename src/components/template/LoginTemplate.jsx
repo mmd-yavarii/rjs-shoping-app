@@ -1,59 +1,14 @@
-import { useEffect, useRef, useState } from 'react';
+import styles from '../../styles/Auth.module.scss';
 
-import styles from '../styles/Auth.module.scss';
-
-import { Link, useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { PulseLoader } from 'react-spinners';
 
 import { AiOutlineEye, AiOutlineEyeInvisible } from 'react-icons/ai';
-import { emailValidation, loginRequest, passwordValidation } from '../helper/functions';
-import { useUserInfo } from '../context/UserProvider';
-function Login({}) {
+import { useEffect, useRef } from 'react';
+
+function LoginTemplate({ passwordInpHandler, emailInpHandler, loginHandler, setVisablePass, visablePass }) {
   const firstInp = useRef();
-  const email = useRef();
-  const password = useRef();
-
-  const [isLoading, setIsLoading] = useState(false);
-  const [visablePass, setVisablePass] = useState(false);
-
   useEffect(() => firstInp.current.focus(), []);
-
-  const [isEmailValied, setIsEmailValied] = useState(false);
-  const [isPasswordValied, setIsPasswordValied] = useState(false);
-
-  const [userInfo, setUserInfo] = useUserInfo();
-
-  const navigate = useNavigate();
-
-  // login handler
-  async function loginHandler() {
-    if (isEmailValied && isPasswordValied) {
-      setIsLoading(true);
-      const res = await loginRequest(email.current, password.current);
-      setUserInfo(res);
-      setIsLoading(false);
-      if (res.length) {
-        alert('You have logged in successfully. Welcome back!');
-        navigate('/', { replace: true });
-      } else {
-        alert('No user found with the provided information.');
-      }
-    } else {
-      alert('Please fill in all the input fields correctly.');
-    }
-  }
-
-  // email input handler
-  function emailInpHandler(event) {
-    setIsEmailValied(emailValidation(event.target.value));
-    email.current = event.target.value;
-  }
-
-  // email input handler
-  function passwordInpHandler(event) {
-    setIsPasswordValied(passwordValidation(event.target.value));
-    password.current = event.target.value;
-  }
 
   return (
     <div className={styles.container}>
@@ -96,4 +51,4 @@ function Login({}) {
   );
 }
 
-export default Login;
+export default LoginTemplate;

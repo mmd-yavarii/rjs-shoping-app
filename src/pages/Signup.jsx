@@ -2,11 +2,14 @@ import { useEffect, useRef, useState } from 'react';
 
 import styles from '../styles/Auth.module.scss';
 
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { PulseLoader } from 'react-spinners';
 
 import { AiOutlineEye, AiOutlineEyeInvisible } from 'react-icons/ai';
-import { emailValidation, passwordValidation } from '../helper/functions';
+import { checkRequest, emailValidation, passwordValidation, signUpRequest } from '../helper/functions';
+
+import { v4 as uuidv4 } from 'uuid';
+import { useUserInfo } from '../context/UserProvider';
 
 function Signup() {
   const firstInp = useRef();
@@ -24,6 +27,50 @@ function Signup() {
   const [isEmailValied, setIsEmailValied] = useState(false);
   const [isPasswordValied, setIsPasswordValied] = useState(false);
   const [isConfirmValied, setIsConfirmValied] = useState(false);
+
+  const [userInfo, setUserInfo] = useUserInfo();
+
+  const navigate = useNavigate();
+
+  // sign up handler
+  async function signUpHandler() {
+    if (isEmailValied && isPasswordValied && isConfirmValied) {
+      setIsLoading(true);
+
+      if (password.current === confirmPassword.current) {
+        const getUser = await checkRequest(email.current);
+
+        const isUserExist = !!getUser.length;
+
+        if (isUserExist) {
+          setIsLoading(true);
+          alert('A user with this information already exists');
+          setIsLoading(false);
+          return;
+        }
+
+        const user = {
+          id: uuidv4(),
+          email: email.current,
+          role: 'user',
+          password: password.current,
+          products: [],
+        };
+
+        const response = await signUpRequest(user);
+        setUserInfo(response);
+        navigate('/', { replace: true });
+
+        alert('Registration successful! Welcome .');
+      } else {
+        alert('The password confirmation does not match.');
+      }
+
+      setIsLoading(false);
+    } else {
+      alert('Please fill in all the input fields correctly.');
+    }
+  }
 
   // email input handler
   function emailInpHandler(event) {
@@ -88,7 +135,9 @@ function Signup() {
       </div>
 
       <div className={styles.linksContainer}>
-        <button className="them-btn">{isLoading ? <PulseLoader size="0.7rem" color="#fff" /> : 'Sign up'}</button>
+        <button className="them-btn" onClick={signUpHandler}>
+          {isLoading ? <PulseLoader size="0.7rem" color="#fff" /> : 'Sign up'}
+        </button>
         <Link to="/login" replace={true}>
           Already have an account
         </Link>

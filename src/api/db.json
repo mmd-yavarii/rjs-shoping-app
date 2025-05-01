@@ -1,15 +1,20 @@
 {
   "users": [
     {
-      "userid": "1",
+      "id": "1",
       "email": "mmd_yavarii@gmail.com",
       "role": "admin",
-      "username": "mmd_yavarii",
-      "password": "12345678",
+      "password": "Mm12345678",
       "products": ["e48ed9f5-f5a4-494b-bb40-0855c5a39699"]
+    },
+    {
+      "id": "43458fef-0ba3-4cdc-b8d4-8690885ece52",
+      "email": "mmdavarii@gmail.com",
+      "role": "user",
+      "password": "Mmndndnd1",
+      "products": []
     }
   ],
-
   "products": [
     {
       "id": "e48ed9f5-f5a4-494b-bb40-0855c5a39699",
