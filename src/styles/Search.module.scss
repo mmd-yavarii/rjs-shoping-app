@@ -34,11 +34,11 @@
     overflow: hidden;
     border: 0.5px solid $border-color;
 
-    a {
+    button {
       width: 100%;
       display: block;
       text-align: start;
-      padding: 7px;
+      padding: 10px;
       border-top: 0.5px solid $border-color;
       display: flex;
       img {

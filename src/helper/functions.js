@@ -1,5 +1,5 @@
 import api from '../api/config.js';
-import { allProductsEndpoint, checkExistanceEndpoint, loginEndpoint, signUpEndpoint } from '../api/servises.js';
+import { allProductsEndpoint, checkExistanceEndpoint, loginEndpoint, paginateProductsEndpoint, signUpEndpoint } from '../api/servises.js';
 import { emailRegex, passwordRegex } from './regexes.js';
 
 // email validation
@@ -52,4 +52,14 @@ async function searchRequest(name) {
   return filtered;
 }
 
-export { emailValidation, passwordValidation, loginRequest, signUpRequest, checkRequest, searchRequest };
+// get paginate data
+async function paginateDataRequest(start, end) {
+  try {
+    const response = await api.get(paginateProductsEndpoint(start, end));
+    return response;
+  } catch (error) {
+    alert(error);
+  }
+}
+
+export { emailValidation, passwordValidation, loginRequest, signUpRequest, checkRequest, searchRequest, paginateDataRequest };

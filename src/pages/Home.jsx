@@ -3,6 +3,8 @@ import Search from '../components/module/Search';
 import styles from '../styles/Home.module.scss';
 
 function Home() {
+  // paginateDataRequest;
+
   return (
     <div className={styles.container}>
       <div className={styles.searchbar}>

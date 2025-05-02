@@ -60,6 +60,15 @@
       "category": "electronics",
       "price": 100,
       "discount": 0.15
+    },
+    {
+      "id": "p7",
+      "name": "Samsung Galaxy A20",
+      "image": "https://s.alicdn.com/@sc04/kf/H430edf326f314a39bcaf05fb574eb226M.jpg_720x720q50.jpg",
+      "rating": 8.9,
+      "category": "electronics",
+      "price": 100,
+      "discount": 0.15
     }
   ]
 }
