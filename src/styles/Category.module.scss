@@ -1,0 +1,58 @@
+@import './varables';
+
+.container {
+  width: 160px;
+
+  .title {
+    border-bottom: 1px solid $border-color;
+    padding-bottom: 5px;
+    margin-bottom: 5px;
+  }
+
+  button {
+    font-size: 1.1rem;
+    padding: 6px;
+    width: 100%;
+    text-align: start;
+  }
+
+  .selected {
+    color: $them-color;
+    font-weight: bold;
+  }
+}
+
+@media (max-width: 700px) {
+  .container {
+    width: 100%;
+    margin: 10px 0;
+    display: flex;
+    overflow-x: auto;
+    gap: 7px;
+    padding: 10px;
+    padding-left: 0;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+
+    &::-webkit-scrollbar {
+      display: none;
+    }
+
+    button {
+      display: inline-block;
+      width: fit-content;
+      background-color: $them-background-color;
+      padding: 5px 15px;
+      border-radius: 10px;
+    }
+
+    .title {
+      display: none;
+    }
+
+    .selected {
+      color: #fff;
+      background-color: $them-color;
+    }
+  }
+}

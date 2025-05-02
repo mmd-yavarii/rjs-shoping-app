@@ -3,7 +3,10 @@ import { IoSearchSharp } from 'react-icons/io5';
 import styles from '../../styles/Search.module.scss';
 import { useEffect, useRef } from 'react';
 
-function SearchBar({ setSearchValue, searchValue, related, recommendHandler, searchHandler }) {
+function SearchBar(props) {
+  const { setSearchValue, searchValue, related, recommendHandler, searchHandler, showRecommend, setShowRecommend, urlSearchParams, setSearchParams } =
+    props;
+
   const container = useRef();
 
   const recommend = [...new Set(related.map((i) => i.name))];
@@ -12,7 +15,7 @@ function SearchBar({ setSearchValue, searchValue, related, recommendHandler, sea
   useEffect(() => {
     const handleClick = (event) => {
       if (container.current && !container.current.contains(event.target)) {
-        setSearchValue('');
+        setShowRecommend(false);
       }
     };
     window.addEventListener('click', handleClick);
@@ -22,15 +25,25 @@ function SearchBar({ setSearchValue, searchValue, related, recommendHandler, sea
     };
   }, []);
 
+  // input handler
+  function inpHandler(event) {
+    setSearchValue(event.target.value);
+
+    if (!event.target.value.length) {
+      urlSearchParams.delete('search');
+      setSearchParams(urlSearchParams, { replace: true });
+    }
+  }
+
   return (
     <div className={styles.container} ref={container}>
-      <input type="text" placeholder="Search Product" value={searchValue} onChange={(e) => setSearchValue(e.target.value)} />
+      <input type="text" placeholder="Search Product" value={searchValue} onChange={inpHandler} />
 
       <button className={styles.searchBtn} onClick={() => searchHandler()}>
         <IoSearchSharp opacity="0.5" size="1.1rem" />
       </button>
 
-      {!!searchValue.length && (
+      {showRecommend && (
         <div className={styles.dropdown}>
           {related.length ? (
             recommend.map((item) => (
