@@ -1,0 +1,9 @@
+.container {
+  padding: 15px;
+}
+
+@media (min-width: 700px) {
+  .searchbar {
+    display: none;
+  }
+}

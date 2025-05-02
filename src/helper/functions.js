@@ -1,5 +1,5 @@
 import api from '../api/config.js';
-import { checkExistanceEndpoint, loginEndpoint, signUpEndpoint } from '../api/servises.js';
+import { allProductsEndpoint, checkExistanceEndpoint, loginEndpoint, signUpEndpoint } from '../api/servises.js';
 import { emailRegex, passwordRegex } from './regexes.js';
 
 // email validation
@@ -45,4 +45,11 @@ async function signUpRequest(user) {
   }
 }
 
-export { emailValidation, passwordValidation, loginRequest, signUpRequest, checkRequest };
+// search products handler
+async function searchRequest(name) {
+  const response = await api.get(allProductsEndpoint);
+  const filtered = response.filter((i) => i.name.toLowerCase().includes(name.toLowerCase()));
+  return filtered;
+}
+
+export { emailValidation, passwordValidation, loginRequest, signUpRequest, checkRequest, searchRequest };

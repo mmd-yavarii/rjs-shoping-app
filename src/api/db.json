@@ -5,25 +5,61 @@
       "email": "mmd_yavarii@gmail.com",
       "role": "admin",
       "password": "Mm12345678",
-      "products": ["e48ed9f5-f5a4-494b-bb40-0855c5a39699"]
+      "products": ["p6", "p4"]
     },
     {
       "id": "43458fef-0ba3-4cdc-b8d4-8690885ece52",
       "email": "mmdavarii@gmail.com",
       "role": "user",
       "password": "Mmndndnd1",
-      "products": []
+      "products": ["p2", "p3", "p5"]
     }
   ],
   "products": [
     {
-      "id": "e48ed9f5-f5a4-494b-bb40-0855c5a39699",
-      "name": "this is a test product",
-      "image": "https://www.autotrainingcentre.com/wp-content/uploads/2014/02/Automotive-training.jpg",
-      "rating": 5.4,
+      "id": "p2",
+      "name": "Iphone 14 Pro Max",
+      "image": "https://angkormeas.com/wp-content/uploads/2023/12/used_14pm_v4.jpg",
+      "rating": 9.1,
+      "category": "electronics",
+      "price": 1400,
+      "discount": 0.1
+    },
+    {
+      "id": "p3",
+      "name": "Samsung Galaxy S22",
+      "image": "https://angkormeas.com/wp-content/uploads/2023/12/Used_s22_ultra_v2.jpg",
+      "rating": 8.9,
+      "category": "electronics",
+      "price": 1100,
+      "discount": 0.15
+    },
+    {
+      "id": "p4",
+      "name": "Nike Running Shoes",
+      "image": "https://i.ebayimg.com/images/g/44kAAOSwb1tgakTC/s-l1200.jpg",
+      "rating": 8.2,
+      "category": "footwear",
+      "price": 150,
+      "discount": 0.25
+    },
+    {
+      "id": "p5",
+      "name": "Adidas Hoodie",
+      "image": "https://media-photos.depop.com/b1/21026779/1567531066_26c9294cf45540ff8e7140493cd59532/P0.jpg",
+      "rating": 7.6,
       "category": "clothing",
-      "price": 300,
-      "discount": 0.8
+      "price": 90,
+      "discount": 0.2
+    },
+    {
+      "id": "p6",
+      "name": "Samsung Galaxy A20",
+      "image": "https://s.alicdn.com/@sc04/kf/H430edf326f314a39bcaf05fb574eb226M.jpg_720x720q50.jpg",
+      "rating": 8.9,
+      "category": "electronics",
+      "price": 100,
+      "discount": 0.15
     }
   ]
 }

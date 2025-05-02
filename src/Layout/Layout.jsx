@@ -4,7 +4,7 @@ import { GoHome, GoHomeFill } from 'react-icons/go';
 import { PiShoppingCartSimple, PiShoppingCartSimpleFill } from 'react-icons/pi';
 import { IoBookmarkOutline, IoBookmark } from 'react-icons/io5';
 import { RiUserLine, RiUserFill } from 'react-icons/ri';
-import { IoMdAdd } from 'react-icons/io';
+import { VscDiffAdded } from 'react-icons/vsc';
 
 import styles from './Layout.module.scss';
 import Search from '../components/module/Search';
@@ -25,14 +25,14 @@ function Layout({ children, isLogin }) {
           </NavLink>
 
           <NavLink replace={true} to="/add" className={styles.addBtn}>
-            <IoMdAdd />
+            <VscDiffAdded />
           </NavLink>
 
           <NavLink replace={true} to="/bookmark" className={({ isActive }) => (isActive ? 'active' : '')}>
             {({ isActive }) => (isActive ? <IoBookmark /> : <IoBookmarkOutline />)}
           </NavLink>
 
-          <NavLink replace={true} to="/profile" className={({ isActive }) => (isActive ? 'active' : '')}>
+          <NavLink to={isLogin ? '/profile' : '/login'} className={({ isActive }) => (isActive ? 'active' : '')}>
             {({ isActive }) => (isActive ? <RiUserFill /> : <RiUserLine />)}
           </NavLink>
         </footer>
