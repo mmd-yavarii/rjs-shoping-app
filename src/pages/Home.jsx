@@ -6,6 +6,7 @@ import Category from '../components/module/Category';
 
 import styles from '../styles/Home.module.scss';
 import Search from '../components/module/Search';
+import { BeatLoader } from 'react-spinners';
 
 function Home() {
   const [products, setProducts] = useState([]);
@@ -13,15 +14,19 @@ function Home() {
   const [end, setEnd] = useState(8);
   const lastProduct = useRef();
 
+  const [isLoading, setIsLoading] = useState(false);
+
   const [searchParams] = useSearchParams();
   const search = searchParams.get('search');
   const category = searchParams.get('category');
 
   // fetch roducts
   useEffect(() => {
+    setIsLoading(true);
     paginateDataRequest(0, end)
       .then((res) => setProducts(res))
-      .catch((err) => alert(err));
+      .catch((err) => alert(err))
+      .finally(() => setIsLoading(false));
   }, [end]);
 
   // set filters
@@ -40,12 +45,20 @@ function Home() {
 
   return (
     <div className={styles.container}>
-      <div className={styles.searchbar}>
-        <Search />
+      <div className={styles.navbar}>
+        <div className={styles.searchbar}>
+          <Search />
+        </div>
+        <Category products={products} />
       </div>
 
-      <Category products={products} />
       <ProductsList display={display} lastProduct={lastProduct} />
+
+      {isLoading && (
+        <div className={styles.loader}>
+          <BeatLoader size="0.5rem" />
+        </div>
+      )}
     </div>
   );
 }

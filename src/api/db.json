@@ -23,7 +23,7 @@
       "rating": 9.1,
       "category": "electronics",
       "price": 1400,
-      "discount": 0.1
+      "discount": 0
     },
     {
       "id": "p3",
@@ -41,7 +41,7 @@
       "rating": 8.2,
       "category": "footwear",
       "price": 150,
-      "discount": 0.25
+      "discount": 0
     },
     {
       "id": "p5",

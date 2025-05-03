@@ -56,3 +56,10 @@
     }
   }
 }
+
+@media (min-width: 700px) {
+  .container {
+    position: sticky;
+    top: 10%;
+  }
+}

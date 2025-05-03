@@ -29,11 +29,11 @@ function Category({ products }) {
           All
         </button>
         {categories.map((i) => (
-          <>
-            <button className={categorySelected == i ? styles.selected : ''} key={i} onClick={setCategoryHandler}>
+          <div key={i}>
+            <button className={categorySelected == i ? styles.selected : ''} onClick={setCategoryHandler}>
               {i}
             </button>
-          </>
+          </div>
         ))}
       </div>
     </>

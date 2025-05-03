@@ -1,5 +1,51 @@
+@import './varables';
+
 .container {
   padding: 15px;
+}
+.title {
+  font-size: 1.5rem;
+  padding: 10px;
+  margin-bottom: 10px;
+}
+
+.loader {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px 0;
+}
+
+.productsList {
+  width: 100%;
+  display: grid;
+  gap: 10px;
+  grid-template-columns: repeat(4, 1fr);
+  align-items: center;
+  justify-items: center;
+}
+
+@media (max-width: 970px) {
+  .productsList {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 750px) {
+  .productsList {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .navbar {
+    width: 100%;
+    position: sticky;
+    top: 0px;
+    padding-top: 15px;
+    z-index: 1;
+    background-color: $background-color;
+    margin-bottom: 12px;
+    border-bottom: 1px solid $border-color;
+  }
 }
 
 @media (min-width: 700px) {
