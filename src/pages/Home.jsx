@@ -44,22 +44,24 @@ function Home() {
   }, [category, search, products]);
 
   return (
-    <div className={styles.container}>
-      <div className={styles.navbar}>
-        <div className={styles.searchbar}>
-          <Search />
+    <>
+      <div className={styles.container}>
+        <div className={styles.navbar}>
+          <div className={styles.searchbar}>
+            <Search />
+          </div>
+          <Category products={products} />
         </div>
-        <Category products={products} />
-      </div>
 
-      <ProductsList display={display} lastProduct={lastProduct} />
+        <ProductsList display={display} lastProduct={lastProduct} />
+      </div>
 
       {isLoading && (
         <div className={styles.loader}>
           <BeatLoader size="0.5rem" />
         </div>
       )}
-    </div>
+    </>
   );
 }
 
