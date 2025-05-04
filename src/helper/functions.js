@@ -5,6 +5,7 @@ import {
   filterCategoryEndpoint,
   loginEndpoint,
   paginateProductsEndpoint,
+  setNewProductEndpoint,
   signUpEndpoint,
 } from '../api/servises.js';
 import { emailRegex, passwordRegex } from './regexes.js';
@@ -85,6 +86,16 @@ async function categoryRequest(category) {
   }
 }
 
+// set new products request
+async function newProductRequest(info) {
+  try {
+    const response = await api.post(setNewProductEndpoint, info);
+    return response;
+  } catch (error) {
+    alert(error);
+  }
+}
+
 export {
   emailValidation,
   passwordValidation,
@@ -95,4 +106,5 @@ export {
   paginateDataRequest,
   shorterText,
   categoryRequest,
+  newProductRequest,
 };

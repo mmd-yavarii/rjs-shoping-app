@@ -1,0 +1,54 @@
+@import './varables';
+
+.container {
+  display: flex;
+}
+
+.pageTitle {
+  padding: 10px;
+  min-width: 200px;
+}
+
+.form {
+  padding: 1em;
+  gap: 20px;
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+
+  span {
+    color: red;
+  }
+
+  input,
+  textarea {
+    margin-bottom: 10px;
+    border: 1px solid $border-color;
+  }
+
+  textarea {
+    height: 92%;
+  }
+
+  button {
+    margin-top: 10px;
+    color: #fff;
+    background-color: $them-color;
+    width: 100%;
+    font-size: 1.1rem;
+    font-weight: 900;
+    padding: 10px;
+    border-radius: 10px;
+    grid-column-start: 1; /* شروع از ستون 2 */
+    grid-column-end: 3; /* پایان در ستون 3 */
+  }
+}
+
+@media (max-width: 700px) {
+  .container {
+    flex-direction: column;
+  }
+  .form {
+    display: block;
+  }
+}

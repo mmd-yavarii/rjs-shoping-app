@@ -5,14 +5,43 @@
       "email": "mmd_yavarii@gmail.com",
       "role": "admin",
       "password": "Mm12345678",
-      "products": ["p6", "p4"]
+      "products": [
+        "p6",
+        "p4"
+      ]
     },
     {
       "id": "43458fef-0ba3-4cdc-b8d4-8690885ece52",
       "email": "mmdavarii@gmail.com",
       "role": "user",
       "password": "Mmndndnd1",
-      "products": ["p2", "p3", "p5"]
+      "products": [
+        "p2",
+        "p3",
+        "p5"
+      ]
+    }
+  ],
+  "pending-products": [
+    {
+      "id": "e6ff680a-e22b-4b86-9aba-6a4d627ab1e4",
+      "image": "https://www.cnet.com/a/img/resize/bebef835df90640f9aa2e4a2f2a2699cf53a301f/hub/2020/10/26/b60bfe6f-3193-4381-b0d4-ac628cdcc565/img-1419.jpg?auto=webp&width=1200",
+      "rating": 0,
+      "name": "ps 5 ",
+      "category": "electronics",
+      "price": 1400,
+      "discount": 0,
+      "description": "this is a new version ps5"
+    },
+    {
+      "id": "6ae00719-14fc-4f38-8db5-f9d1afbe9cad",
+      "image": "https://www.hamrah-mechanic.com/mag/wp-content/uploads/2021/07/206-tips2.jpg",
+      "rating": 0,
+      "name": "206 / 1395",
+      "category": "vehicles",
+      "price": 38761000,
+      "discount": 0,
+      "description": "this is a second hand car named 206 and this is really good car "
     }
   ],
   "products": [

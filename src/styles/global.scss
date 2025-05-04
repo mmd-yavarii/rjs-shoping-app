@@ -37,7 +37,9 @@ button {
   cursor: default;
 }
 
-input {
+input,
+textarea,
+select {
   border: none;
   outline: none;
   background-color: $them-background-color;
@@ -55,6 +57,11 @@ input {
       color: $them-color;
     }
   }
+}
+
+textarea {
+  height: 100px;
+  resize: none;
 }
 
 .error-inp {
@@ -101,7 +108,8 @@ input {
 
 @media (min-width: 700px) {
   a,
-  button {
+  button,
+  select {
     transition: all 0.3s;
     cursor: pointer;
 
