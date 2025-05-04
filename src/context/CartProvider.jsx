@@ -46,9 +46,8 @@ function CartProvider({ children }) {
 
   // count a product in cart
   function countProductInCart(info) {
-    const theItem = state.find((i) => i.id == info.id);
-    if (!theItem) return 0;
-    return theItem.count;
+    const theItem = state.find((i) => i.id === info.id);
+    return theItem ? theItem.count : 0;
   }
 
   return <CartContext.Provider value={[state, dispatch, countProductInCart]}>{children}</CartContext.Provider>;

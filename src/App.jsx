@@ -9,6 +9,7 @@ import Profile from './pages/Profile';
 import ProductDetail from './pages/ProductDetail';
 import Bookmark from './pages/Bookmark';
 import NotFound from './pages/404';
+import Cart from './pages/Cart';
 
 function App() {
   const [userInfo, setUserInfo] = useUserInfo();
@@ -19,6 +20,7 @@ function App() {
         <Route index element={<Home />} />
         <Route path="/product/:id" element={<ProductDetail />} />
         <Route path="/bookmark" element={<Bookmark />} />
+        <Route path="/cart" element={<Cart />} />
         <Route path="/profile" element={!!userInfo.id ? <Profile /> : <Navigate to="/" replace={true} />} />
         <Route path="/login" element={!!userInfo.id ? <Navigate to="/profile" replace={true} /> : <Login />} />
         <Route path="/signup" element={!!userInfo.id ? <Navigate to="/profile" replace={true} /> : <Signup />} />
