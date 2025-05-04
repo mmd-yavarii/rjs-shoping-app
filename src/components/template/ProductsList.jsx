@@ -4,7 +4,7 @@ import Empty from './Empty';
 
 function ProductsList({ display, lastProduct }) {
   return (
-    <div className={styles.productsList}>
+    <div className={display.length ? styles.productsList : ''}>
       {display.length ? (
         display.map((i, index) => (index === display.length - 1 ? <Card info={i} key={i.id} ref={lastProduct} /> : <Card info={i} key={i.id} />))
       ) : (
