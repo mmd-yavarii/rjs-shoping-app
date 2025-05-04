@@ -23,7 +23,8 @@
       "rating": 9.1,
       "category": "electronics",
       "price": 1400,
-      "discount": 0
+      "discount": 0,
+      "description": "Apple's flagship smartphone with a sleek design, exceptional camera, and top-tier performance for professionals."
     },
     {
       "id": "p3",
@@ -32,7 +33,8 @@
       "rating": 8.9,
       "category": "electronics",
       "price": 1100,
-      "discount": 0.15
+      "discount": 0.15,
+      "description": "A premium Samsung smartphone featuring a brilliant AMOLED display, powerful camera system, and a special discount."
     },
     {
       "id": "p4",
@@ -41,7 +43,8 @@
       "rating": 8.2,
       "category": "footwear",
       "price": 150,
-      "discount": 0
+      "discount": 0,
+      "description": "Ergonomically designed Nike running shoes with soft cushioning for a comfortable athletic experience."
     },
     {
       "id": "p5",
@@ -50,7 +53,8 @@
       "rating": 7.6,
       "category": "clothing",
       "price": 90,
-      "discount": 0.2
+      "discount": 0.2,
+      "description": "A stylish and cozy Adidas hoodie made from warm fabric, now with 20% off for a limited time."
     },
     {
       "id": "p6",
@@ -59,7 +63,8 @@
       "rating": 8.9,
       "category": "electronics",
       "price": 100,
-      "discount": 0.15
+      "discount": 0.15,
+      "description": "A budget-friendly Samsung smartphone with solid performance and an excellent discount deal."
     },
     {
       "id": "p7",
@@ -68,7 +73,8 @@
       "rating": 8.9,
       "category": "electronics",
       "price": 100,
-      "discount": 0.15
+      "discount": 0.15,
+      "description": "Another variant of the Galaxy A20 offering the same reliable features and a great value for money."
     }
   ]
 }

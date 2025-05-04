@@ -10,7 +10,7 @@ function Card({ info }) {
 
   return (
     <div className={styles.container}>
-      <Link to={`/product/${id}`} className={styles.imageContainer}>
+      <Link to={`/product/${id}`} state={info} className={styles.imageContainer}>
         <img src={image} alt={name} />
       </Link>
 

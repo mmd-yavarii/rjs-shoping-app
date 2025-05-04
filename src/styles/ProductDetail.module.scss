@@ -1,0 +1,119 @@
+@import './varables';
+
+.container {
+  padding: 10px;
+  display: flex;
+
+  gap: 16px;
+
+  .imageContainer {
+    width: 400px;
+    height: 350px;
+    border-radius: 15px;
+    overflow: hidden;
+    background-color: $them-background-color;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+
+    img {
+      width: 100%;
+    }
+    .bookmark {
+      width: 40px;
+      height: 40px;
+      border-radius: 15px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: #ffffff8f;
+      position: absolute;
+      top: 10px;
+      right: 10px;
+    }
+  }
+
+  .info {
+    width: 70%;
+
+    .productInfo {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      justify-items: center;
+      padding-bottom: 10px;
+      margin-bottom: 7px;
+      border-bottom: 1px solid $border-color;
+
+      div {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+      }
+    }
+
+    .name {
+      font-size: 1.4rem;
+      padding: 10px 0;
+    }
+
+    .detail {
+      margin-top: 10px;
+
+      .detailTitle {
+        font-size: 1rem;
+        font-weight: 900;
+        margin-bottom: 5px;
+      }
+
+      button {
+        color: $link-color;
+        display: inline;
+        text-decoration: underline;
+        font-weight: 500;
+      }
+    }
+  }
+}
+
+.recommendContainer {
+  padding: 10px;
+  margin-top: 20px;
+  border-top: 1px solid $border-color;
+
+  h4 {
+    padding: 10px 0;
+  }
+
+  .loader {
+    margin-top: 10px;
+    opacity: 0.5;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .recommend {
+    margin-top: 10px;
+    display: flex;
+    gap: 20px;
+  }
+}
+
+@media (max-width: 700px) {
+  .container {
+    flex-direction: column;
+
+    .imageContainer {
+      width: 100%;
+    }
+
+    .info {
+      width: 100%;
+    }
+  }
+
+  .recommend {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+  }
+}

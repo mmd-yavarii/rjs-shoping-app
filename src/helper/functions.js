@@ -1,5 +1,12 @@
 import api from '../api/config.js';
-import { allProductsEndpoint, checkExistanceEndpoint, loginEndpoint, paginateProductsEndpoint, signUpEndpoint } from '../api/servises.js';
+import {
+  allProductsEndpoint,
+  checkExistanceEndpoint,
+  filterCategoryEndpoint,
+  loginEndpoint,
+  paginateProductsEndpoint,
+  signUpEndpoint,
+} from '../api/servises.js';
 import { emailRegex, passwordRegex } from './regexes.js';
 
 // email validation
@@ -62,4 +69,30 @@ async function paginateDataRequest(start, end) {
   }
 }
 
-export { emailValidation, passwordValidation, loginRequest, signUpRequest, checkRequest, searchRequest, paginateDataRequest };
+// sorter text
+function shorterText(text) {
+  const splited = text.split(' ').slice(0, 10);
+  return splited.join(' ') + ' ...';
+}
+
+// get products by categort
+async function categoryRequest(category) {
+  try {
+    const response = await api(filterCategoryEndpoint(category));
+    return response;
+  } catch (error) {
+    alert(error);
+  }
+}
+
+export {
+  emailValidation,
+  passwordValidation,
+  loginRequest,
+  signUpRequest,
+  checkRequest,
+  searchRequest,
+  paginateDataRequest,
+  shorterText,
+  categoryRequest,
+};
