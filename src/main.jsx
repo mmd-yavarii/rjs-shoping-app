@@ -8,15 +8,13 @@ import CartProvider from './context/CartProvider.jsx';
 import BookmarkProvider from './context/BookmarkProvider.jsx';
 
 createRoot(document.getElementById('root')).render(
-  <StrictMode>
-    <BrowserRouter>
-      <UserProvider>
-        <CartProvider>
-          <BookmarkProvider>
-            <App />
-          </BookmarkProvider>
-        </CartProvider>
-      </UserProvider>
-    </BrowserRouter>
-  </StrictMode>
+  <BrowserRouter>
+    <UserProvider>
+      <CartProvider>
+        <BookmarkProvider>
+          <App />
+        </BookmarkProvider>
+      </CartProvider>
+    </UserProvider>
+  </BrowserRouter>
 );

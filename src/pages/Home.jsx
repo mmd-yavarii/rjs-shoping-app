@@ -11,8 +11,6 @@ import { BeatLoader } from 'react-spinners';
 function Home() {
   const [products, setProducts] = useState([]);
   const [display, setDisplay] = useState([]);
-  const [end, setEnd] = useState(8);
-  const lastProduct = useRef();
 
   const [isLoading, setIsLoading] = useState(false);
 
@@ -20,32 +18,37 @@ function Home() {
   const search = searchParams.get('search');
   const category = searchParams.get('category');
 
-  // fetch roducts
+  const [end, setEnd] = useState(12);
+  const [start, setStart] = useState(0);
+
+  // fetch products after update start / end
   useEffect(() => {
     setIsLoading(true);
-    paginateDataRequest(0, end)
-      .then((res) => setProducts(res))
-      .catch((err) => alert(err))
+    if (isLoading) return;
+
+    paginateDataRequest(start, end)
+      .then((res) => {
+        res.length && setProducts((prev) => [...prev, ...res]);
+      })
+      .catch((error) => alert(error))
       .finally(() => setIsLoading(false));
-  }, [end]);
+  }, [start, end]);
 
   // set filters
   useEffect(() => {
     let result = [...products];
-
     if (category) {
       result = result.filter((i) => i.category === category);
     }
     if (search) {
       result = result.filter((i) => i.name.toLowerCase().includes(search.toLowerCase()));
     }
-
     setDisplay(result);
   }, [category, search, products]);
 
   return (
     <>
-      <div className={styles.container}>
+      <div className={`${styles.container} mmd`}>
         <div className={styles.navbar}>
           <div className={styles.searchbar}>
             <Search />
@@ -53,7 +56,7 @@ function Home() {
           <Category products={products} />
         </div>
 
-        <ProductsList display={display} lastProduct={lastProduct} />
+        <ProductsList display={display} />
       </div>
 
       {isLoading && (

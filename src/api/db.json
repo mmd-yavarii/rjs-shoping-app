@@ -5,21 +5,14 @@
       "email": "mmd_yavarii@gmail.com",
       "role": "admin",
       "password": "Mm12345678",
-      "products": [
-        "p6",
-        "p4"
-      ]
+      "products": ["p6", "p4"]
     },
     {
       "id": "43458fef-0ba3-4cdc-b8d4-8690885ece52",
       "email": "mmdavarii@gmail.com",
       "role": "user",
       "password": "Mmndndnd1",
-      "products": [
-        "p2",
-        "p3",
-        "p5"
-      ]
+      "products": ["p2", "p3", "p5"]
     }
   ],
   "pending-products": [],
@@ -75,14 +68,34 @@
       "description": "this is a second hand car named 206 and this is really good car"
     },
     {
-      "id": "6975a507-ad63-486b-92cf-6469efe54cd4",
-      "image": "https://www.cnet.com/a/img/resize/bebef835df90640f9aa2e4a2f2a2699cf53a301f/hub/2020/10/26/b60bfe6f-3193-4381-b0d4-ac628cdcc565/img-1419.jpg?auto=webp&width=1200",
+      "id": "7c39a674-a766-4e8d-9355-ebbfcefd8185",
+      "image": "https://bikefair.ams3.cdn.digitaloceanspaces.com/public/production/697259/198404-1745571795.jpg",
       "rating": 0,
-      "name": "mmd ",
-      "category": "toys",
-      "price": 100,
+      "name": "bicycle ",
+      "category": "vehicles",
+      "price": 189,
+      "discount": 0.7,
+      "description": "this is a second hand bicycle , i set 30% discount so that i can sell it quickly "
+    },
+    {
+      "id": "b0947434-01b2-4422-aa3e-60c85ff0832b",
+      "image": "https://seecly.com/48255-home_default/ray-ban.jpg",
+      "rating": 0,
+      "name": "ray ban",
+      "category": "fashion",
+      "price": 98,
       "discount": 0,
-      "description": "hello my name is. mohammad yavarii "
+      "description": "i bought this sunglasses in ebay but now i sick of it and i want to sell it for half price "
+    },
+    {
+      "id": "ae1a7dcc-5163-4f59-8ad6-4ff9b17ec472",
+      "image": "https://rukminim2.flixcart.com/image/850/1000/xif0q/shoe/o/7/u/7-pista-7-roaster-white-original-imagwdw5fgx2hepm.jpeg?q=90&crop=false",
+      "rating": 0,
+      "name": "shoe ",
+      "category": "fashion",
+      "price": 110900,
+      "discount": 0,
+      "description": "thisdhakljdhslkjflskajgnfs"
     }
   ]
 }
