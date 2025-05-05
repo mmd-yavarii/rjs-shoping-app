@@ -2,11 +2,25 @@ import { Link } from 'react-router-dom';
 import styles from '../../styles/Card.module.scss';
 
 import { TiStarFullOutline } from 'react-icons/ti';
+import { FaRegTrashAlt } from 'react-icons/fa';
 
 import BookmarkBtn from './BookmarkBtn';
+import { useUserInfo } from '../../context/UserProvider';
+import { deleteRequest } from '../../helper/functions';
 
 function Card({ info }) {
   const { name, image, rating, discount, price, id } = info;
+  const [userInfo, setUserInfo] = useUserInfo();
+
+  // delete product by admin handler
+  async function deleteByAdminHandler() {
+    const confirmation = confirm('are you sure ?');
+    if (confirmation) {
+      deleteRequest(id)
+        .then(() => alert('deleted succesfully'))
+        .then(() => location.reload());
+    }
+  }
 
   return (
     <div className={styles.container}>
@@ -20,6 +34,13 @@ function Card({ info }) {
         <div className={styles.bookmark}>
           <BookmarkBtn info={info} />
         </div>
+
+        {/* delete only for admin */}
+        {!!userInfo.id && (
+          <button onClick={deleteByAdminHandler} className={styles.delete}>
+            <FaRegTrashAlt />
+          </button>
+        )}
 
         <div className={styles.ratingAndDiscount}>
           <div className={styles.rating}>

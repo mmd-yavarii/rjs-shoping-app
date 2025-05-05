@@ -3,7 +3,12 @@ const loginEndpoint = (email, password) => `/users?email=${email}&password=${pas
 const signUpEndpoint = `/users`;
 
 const allProductsEndpoint = '/products';
-const setNewProductEndpoint = '/pending-products';
+
+const adminReviewEndpoint = '/pending-products';
+
+const deleteReviewEndpoint = (id) => `/pending-products/${id}`;
+
+const deleteProductEndpoint = (id) => `/products/${id}`;
 
 const paginateProductsEndpoint = (start, end) => `/products?_start=${start}&_end=${end}`;
 
@@ -18,5 +23,7 @@ export {
   filterCategoryEndpoint,
   paginateProductsEndpoint,
   allProductsEndpoint,
-  setNewProductEndpoint,
+  adminReviewEndpoint,
+  deleteReviewEndpoint,
+  deleteProductEndpoint,
 };

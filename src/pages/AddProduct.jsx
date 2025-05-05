@@ -3,6 +3,7 @@ import styles from '../styles/AddProduct.module.scss';
 import { v4 as uuidv4 } from 'uuid';
 import { useState } from 'react';
 import { newProductRequest } from '../helper/functions';
+import { categories } from '../helper/varables';
 
 function AddProduct() {
   const initialState = {
@@ -57,18 +58,11 @@ function AddProduct() {
           <label>
             category <span>*</span>
             <select name="category" id="category" required value={form.category} onChange={inpHandler}>
-              <option value="fashion">fashion</option>
-              <option value="electronics">electronics</option>
-              <option value="furniture">furniture</option>
-              <option value="books">books</option>
-              <option value="appliances">appliances</option>
-              <option value="toys">toys</option>
-              <option value="sports">sports</option>
-              <option value="vehicles">vehicles</option>
-              <option value="art">art</option>
-              <option value="computers">computers</option>
-              <option value="cameras">cameras</option>
-              <option value="collectibles">collectibles</option>
+              {categories.map((i) => (
+                <option key={i.id} value={i.value}>
+                  {i.value}
+                </option>
+              ))}
             </select>
           </label>
 

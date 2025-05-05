@@ -11,21 +11,21 @@ import Bookmark from './pages/Bookmark';
 import NotFound from './pages/404';
 import Cart from './pages/Cart';
 import AddProduct from './pages/AddProduct';
+import Admin from './pages/Admin';
 
 function App() {
   const [userInfo, setUserInfo] = useUserInfo();
 
   return (
-    <Layout isLogin={!!userInfo.id}>
+    <Layout isLogin={!!userInfo.id} role={userInfo.role}>
       <Routes>
         <Route index element={<Home />} />
         <Route path="/product/:id" element={<ProductDetail />} />
         <Route path="/bookmark" element={<Bookmark />} />
         <Route path="/cart" element={<Cart />} />
-
-        <Route path="/add" element={<AddProduct />} />
-
+        <Route path="/add" element={!!userInfo.id ? <AddProduct /> : <Navigate to="/login" replace={true} />} />
         <Route path="/profile" element={!!userInfo.id ? <Profile /> : <Navigate to="/" replace={true} />} />
+        <Route path="/admin" element={!!userInfo.id && userInfo.role == 'admin' ? <Admin /> : <Navigate to="/" replace={true} />} />
         <Route path="/login" element={!!userInfo.id ? <Navigate to="/profile" replace={true} /> : <Login />} />
         <Route path="/signup" element={!!userInfo.id ? <Navigate to="/profile" replace={true} /> : <Signup />} />
         <Route path="*" element={<NotFound />} />

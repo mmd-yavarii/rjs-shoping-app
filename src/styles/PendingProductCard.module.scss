@@ -1,0 +1,49 @@
+@import './varables';
+
+.container {
+  border-bottom: 1px solid $border-color;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px;
+
+  .infoConttainer {
+    display: flex;
+    gap: 20px;
+  }
+
+  .description {
+    max-width: 300px;
+  }
+
+  .btnContainer {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+
+    button {
+      font-size: 1.5rem;
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 35px;
+      height: 35px;
+      border: 1px solid $border-color;
+    }
+  }
+}
+
+.imageContainer {
+  border-radius: 15px;
+  width: 150px;
+  overflow: hidden;
+  background-color: $them-background-color;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  img {
+    width: 100%;
+  }
+}

@@ -1,9 +1,8 @@
 import { useSearchParams } from 'react-router-dom';
 import styles from '../../styles/Category.module.scss';
+import { categories } from '../../helper/varables';
 
 function Category({ products }) {
-  const categories = [...new Set(products.map((i) => i.category))];
-
   const [serachParams, setSearchParams] = useSearchParams();
   const urlSearchParams = new URLSearchParams(serachParams);
   const categorySelected = serachParams.get('category');
@@ -29,9 +28,9 @@ function Category({ products }) {
           All
         </button>
         {categories.map((i) => (
-          <div key={i}>
-            <button className={categorySelected == i ? styles.selected : ''} onClick={setCategoryHandler}>
-              {i}
+          <div key={i.id}>
+            <button className={categorySelected == i.value ? styles.selected : ''} onClick={setCategoryHandler}>
+              {i.value}
             </button>
           </div>
         ))}

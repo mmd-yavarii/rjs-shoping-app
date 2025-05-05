@@ -5,8 +5,10 @@ import {
   filterCategoryEndpoint,
   loginEndpoint,
   paginateProductsEndpoint,
-  setNewProductEndpoint,
+  adminReviewEndpoint,
   signUpEndpoint,
+  deleteReviewEndpoint,
+  deleteProductEndpoint,
 } from '../api/servises.js';
 import { emailRegex, passwordRegex } from './regexes.js';
 
@@ -89,8 +91,39 @@ async function categoryRequest(category) {
 // set new products request
 async function newProductRequest(info) {
   try {
-    const response = await api.post(setNewProductEndpoint, info);
+    const response = await api.post(adminReviewEndpoint, info);
     return response;
+  } catch (error) {
+    alert(error);
+  }
+}
+
+// get all pending products
+async function getPendingRequest() {
+  try {
+    const response = await api.get(adminReviewEndpoint);
+    return response;
+  } catch (error) {
+    alert(error);
+  }
+}
+
+// accept or reject a product request by admin
+async function updateProductRequest(isAccepted, info) {
+  try {
+    if (isAccepted) {
+      await api.post(allProductsEndpoint, info);
+    }
+    await api.delete(deleteReviewEndpoint(info.id));
+  } catch (error) {
+    alert('An error occurred: ' + error.message);
+  }
+}
+
+// delete a product by admin
+async function deleteRequest(id) {
+  try {
+    const response = await api.delete(deleteProductEndpoint(id));
   } catch (error) {
     alert(error);
   }
@@ -107,4 +140,7 @@ export {
   shorterText,
   categoryRequest,
   newProductRequest,
+  updateProductRequest,
+  getPendingRequest,
+  deleteRequest,
 };

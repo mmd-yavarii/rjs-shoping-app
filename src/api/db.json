@@ -22,28 +22,7 @@
       ]
     }
   ],
-  "pending-products": [
-    {
-      "id": "e6ff680a-e22b-4b86-9aba-6a4d627ab1e4",
-      "image": "https://www.cnet.com/a/img/resize/bebef835df90640f9aa2e4a2f2a2699cf53a301f/hub/2020/10/26/b60bfe6f-3193-4381-b0d4-ac628cdcc565/img-1419.jpg?auto=webp&width=1200",
-      "rating": 0,
-      "name": "ps 5 ",
-      "category": "electronics",
-      "price": 1400,
-      "discount": 0,
-      "description": "this is a new version ps5"
-    },
-    {
-      "id": "6ae00719-14fc-4f38-8db5-f9d1afbe9cad",
-      "image": "https://www.hamrah-mechanic.com/mag/wp-content/uploads/2021/07/206-tips2.jpg",
-      "rating": 0,
-      "name": "206 / 1395",
-      "category": "vehicles",
-      "price": 38761000,
-      "discount": 0,
-      "description": "this is a second hand car named 206 and this is really good car "
-    }
-  ],
+  "pending-products": [],
   "products": [
     {
       "id": "p2",
@@ -66,21 +45,11 @@
       "description": "A premium Samsung smartphone featuring a brilliant AMOLED display, powerful camera system, and a special discount."
     },
     {
-      "id": "p4",
-      "name": "Nike Running Shoes",
-      "image": "https://i.ebayimg.com/images/g/44kAAOSwb1tgakTC/s-l1200.jpg",
-      "rating": 8.2,
-      "category": "footwear",
-      "price": 150,
-      "discount": 0,
-      "description": "Ergonomically designed Nike running shoes with soft cushioning for a comfortable athletic experience."
-    },
-    {
       "id": "p5",
       "name": "Adidas Hoodie",
       "image": "https://media-photos.depop.com/b1/21026779/1567531066_26c9294cf45540ff8e7140493cd59532/P0.jpg",
       "rating": 7.6,
-      "category": "clothing",
+      "category": "fashion",
       "price": 90,
       "discount": 0.2,
       "description": "A stylish and cozy Adidas hoodie made from warm fabric, now with 20% off for a limited time."
@@ -96,14 +65,24 @@
       "description": "A budget-friendly Samsung smartphone with solid performance and an excellent discount deal."
     },
     {
-      "id": "p7",
-      "name": "Samsung Galaxy A20",
-      "image": "https://s.alicdn.com/@sc04/kf/H430edf326f314a39bcaf05fb574eb226M.jpg_720x720q50.jpg",
-      "rating": 8.9,
-      "category": "electronics",
+      "id": "6ae00719-14fc-4f38-8db5-f9d1afbe9cad",
+      "image": "https://www.hamrah-mechanic.com/mag/wp-content/uploads/2021/07/206-tips2.jpg",
+      "rating": 0,
+      "name": "206 / 1395",
+      "category": "vehicles",
+      "price": 38761000,
+      "discount": 0,
+      "description": "this is a second hand car named 206 and this is really good car"
+    },
+    {
+      "id": "6975a507-ad63-486b-92cf-6469efe54cd4",
+      "image": "https://www.cnet.com/a/img/resize/bebef835df90640f9aa2e4a2f2a2699cf53a301f/hub/2020/10/26/b60bfe6f-3193-4381-b0d4-ac628cdcc565/img-1419.jpg?auto=webp&width=1200",
+      "rating": 0,
+      "name": "mmd ",
+      "category": "toys",
       "price": 100,
-      "discount": 0.15,
-      "description": "Another variant of the Galaxy A20 offering the same reliable features and a great value for money."
+      "discount": 0,
+      "description": "hello my name is. mohammad yavarii "
     }
   ]
 }

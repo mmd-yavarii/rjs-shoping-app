@@ -17,6 +17,11 @@
     align-items: center;
     justify-content: center;
   }
+  .delete {
+    @extend .bookmark;
+    right: 0px;
+    left: 10px;
+  }
 
   .name {
     font-weight: 900;
