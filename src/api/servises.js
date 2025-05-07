@@ -16,6 +16,8 @@ const checkExistanceEndpoint = (email) => `/users?email=${email}`;
 
 const filterCategoryEndpoint = (category) => `/products?category=${category}`;
 
+const getUserProductsEndpoint = (id) => `/products?addedBy=${id}`;
+
 export {
   loginEndpoint,
   signUpEndpoint,
@@ -26,4 +28,5 @@ export {
   adminReviewEndpoint,
   deleteReviewEndpoint,
   deleteProductEndpoint,
+  getUserProductsEndpoint,
 };

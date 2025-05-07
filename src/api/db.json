@@ -4,15 +4,13 @@
       "id": "1",
       "email": "mmd_yavarii@gmail.com",
       "role": "admin",
-      "password": "Mm12345678",
-      "products": ["p6", "p4"]
+      "password": "Mm12345678"
     },
     {
       "id": "43458fef-0ba3-4cdc-b8d4-8690885ece52",
       "email": "mmdavarii@gmail.com",
       "role": "user",
-      "password": "Mmndndnd1",
-      "products": ["p2", "p3", "p5"]
+      "password": "Mmndndnd1"
     }
   ],
   "pending-products": [],
@@ -25,7 +23,8 @@
       "category": "electronics",
       "price": 1400,
       "discount": 0,
-      "description": "Apple's flagship smartphone with a sleek design, exceptional camera, and top-tier performance for professionals."
+      "description": "Apple's flagship smartphone with a sleek design, exceptional camera, and top-tier performance for professionals.",
+      "addedBy": "1"
     },
     {
       "id": "p3",
@@ -35,7 +34,8 @@
       "category": "electronics",
       "price": 1100,
       "discount": 0.15,
-      "description": "A premium Samsung smartphone featuring a brilliant AMOLED display, powerful camera system, and a special discount."
+      "description": "A premium Samsung smartphone featuring a brilliant AMOLED display, powerful camera system, and a special discount.",
+      "addedBy": "1"
     },
     {
       "id": "p5",
@@ -45,7 +45,8 @@
       "category": "fashion",
       "price": 90,
       "discount": 0.2,
-      "description": "A stylish and cozy Adidas hoodie made from warm fabric, now with 20% off for a limited time."
+      "description": "A stylish and cozy Adidas hoodie made from warm fabric, now with 20% off for a limited time.",
+      "addedBy": "1"
     },
     {
       "id": "p6",
@@ -55,7 +56,8 @@
       "category": "electronics",
       "price": 100,
       "discount": 0.15,
-      "description": "A budget-friendly Samsung smartphone with solid performance and an excellent discount deal."
+      "description": "A budget-friendly Samsung smartphone with solid performance and an excellent discount deal.",
+      "addedBy": "1"
     },
     {
       "id": "6ae00719-14fc-4f38-8db5-f9d1afbe9cad",
@@ -65,7 +67,8 @@
       "category": "vehicles",
       "price": 38761000,
       "discount": 0,
-      "description": "this is a second hand car named 206 and this is really good car"
+      "description": "this is a second hand car named 206 and this is really good car",
+      "addedBy": "43458fef-0ba3-4cdc-b8d4-8690885ece52"
     },
     {
       "id": "7c39a674-a766-4e8d-9355-ebbfcefd8185",
@@ -75,7 +78,8 @@
       "category": "vehicles",
       "price": 189,
       "discount": 0.7,
-      "description": "this is a second hand bicycle , i set 30% discount so that i can sell it quickly "
+      "description": "this is a second hand bicycle , i set 30% discount so that i can sell it quickly ",
+      "addedBy": "43458fef-0ba3-4cdc-b8d4-8690885ece52"
     },
     {
       "id": "b0947434-01b2-4422-aa3e-60c85ff0832b",
@@ -85,7 +89,8 @@
       "category": "fashion",
       "price": 98,
       "discount": 0,
-      "description": "i bought this sunglasses in ebay but now i sick of it and i want to sell it for half price "
+      "description": "i bought this sunglasses in ebay but now i sick of it and i want to sell it for half price ",
+      "addedBy": "43458fef-0ba3-4cdc-b8d4-8690885ece52"
     },
     {
       "id": "ae1a7dcc-5163-4f59-8ad6-4ff9b17ec472",
@@ -95,7 +100,8 @@
       "category": "fashion",
       "price": 110900,
       "discount": 0,
-      "description": "thisdhakljdhslkjflskajgnfs"
+      "description": "thisdhakljdhslkjflskajgnfs",
+      "addedBy": "43458fef-0ba3-4cdc-b8d4-8690885ece52"
     }
   ]
 }

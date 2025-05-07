@@ -9,6 +9,7 @@ import {
   signUpEndpoint,
   deleteReviewEndpoint,
   deleteProductEndpoint,
+  getUserProductsEndpoint,
 } from '../api/servises.js';
 import { emailRegex, passwordRegex } from './regexes.js';
 
@@ -129,6 +130,17 @@ async function deleteRequest(id) {
   }
 }
 
+// Get user's products
+async function getUserProductsRequest(id) {
+  try {
+    const response = await api.get(getUserProductsEndpoint(id));
+    return response;
+  } catch (error) {
+    alert('Failed to load products: ' + error.message);
+    return [];
+  }
+}
+
 export {
   emailValidation,
   passwordValidation,
@@ -143,4 +155,5 @@ export {
   updateProductRequest,
   getPendingRequest,
   deleteRequest,
+  getUserProductsRequest,
 };

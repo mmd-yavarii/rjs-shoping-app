@@ -4,7 +4,7 @@ import { GoHome, GoHomeFill } from 'react-icons/go';
 import { PiShoppingCartSimple, PiShoppingCartSimpleFill } from 'react-icons/pi';
 import { IoBookmarkOutline, IoBookmark } from 'react-icons/io5';
 import { RiUserLine, RiUserFill } from 'react-icons/ri';
-import { VscDiffAdded } from 'react-icons/vsc';
+import { BiMessageSquareAdd } from 'react-icons/bi';
 import { RiUserSettingsLine, RiUserSettingsFill } from 'react-icons/ri';
 
 import styles from './Layout.module.scss';
@@ -26,7 +26,7 @@ function Layout({ children, isLogin, role }) {
           </NavLink>
 
           <NavLink to="/add" className={styles.addBtn}>
-            <VscDiffAdded />
+            <BiMessageSquareAdd />
           </NavLink>
 
           <NavLink replace={true} to="/bookmark" className={({ isActive }) => (isActive ? 'active' : '')}>

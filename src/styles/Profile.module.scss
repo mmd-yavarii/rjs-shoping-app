@@ -1,0 +1,92 @@
+@import './varables';
+
+.container {
+  padding: 10px;
+}
+
+.userInfo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 16px;
+  border-bottom: 1px solid $border-color;
+  margin-bottom: 10px;
+
+  .profile {
+    width: 60px;
+    height: 60px;
+    font-size: 1.8rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid $border-color;
+    background-color: $them-background-color;
+    border-radius: 50px;
+  }
+}
+
+.logout {
+  color: #e91e62df;
+  border-radius: 10px;
+  margin-top: 10px;
+}
+
+.loader {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 200px;
+  opacity: 0.8;
+}
+
+.message {
+  margin-top: 200px;
+  text-align: center;
+}
+
+.title {
+  margin: 10px;
+}
+
+.card {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  border-bottom: 1px solid $border-color;
+  padding: 10px;
+
+  .imageContainer {
+    width: 160px;
+    overflow: hidden;
+    height: 150px;
+    border-radius: 10px;
+    background-color: $them-background-color;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+
+    .controller {
+      position: absolute;
+      top: 10px;
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 10px;
+      & > * {
+        width: 30px;
+        height: 30px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 10px;
+        background-color: #ffffff91;
+      }
+    }
+
+    img {
+      height: 100%;
+    }
+  }
+}

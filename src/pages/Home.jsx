@@ -18,17 +18,17 @@ function Home() {
   const search = searchParams.get('search');
   const category = searchParams.get('category');
 
-  const [end, setEnd] = useState(12);
-  const [start, setStart] = useState(0);
+  const start = useRef();
+  const end = useRef(10);
 
-  // fetch products after update start / end
+  // fetch products
   useEffect(() => {
     setIsLoading(true);
     if (isLoading) return;
 
     paginateDataRequest(start, end)
       .then((res) => {
-        res.length && setProducts((prev) => [...prev, ...res]);
+        res.length && setProducts(res);
       })
       .catch((error) => alert(error))
       .finally(() => setIsLoading(false));
