@@ -1,12 +1,60 @@
-# React + Vite
+# 🛍️ React Shopping App
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This is a simple online shop app made with **React**. Users can add their own products, buy from others, and manage their products. Admin can also manage the site.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## ✨ Main Features
 
-## Expanding the ESLint configuration
+- Search and filter products using query strings
+- Infinite scroll for smooth pagination experience
+- Authentication & Authorization for protected routes
+- Add product feature for users (pending admin approval)
+- Form validation using Regex
+- Online payment integration with Zarinpal API
+- Admin panel to approve, reject, or delete products
+- User panel to manage (edit/delete) user's own products
+  -Fully responsive design
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+---
+
+## 🛠️ Technologies Used
+
+- React
+- Sass
+- Axios
+- Context API + useReducer
+- JSON Server (for fake backend)
+- Regex
+- Zarinpal API
+
+---
+
+## 🚀 How to Start the Project
+
+1. Clone the project :
+
+   ```bash
+   git clone https://github.com/mmd-yavarii/rjs-shoping-app.git
+   cd rjs-shoping-app
+
+   ```
+
+2. Install all packages :
+
+   ```bash
+   npm install
+
+   ```
+
+3. Start the fake backend (JSON Server) :
+
+   ```bash
+   npm run api
+
+   ```
+
+4. Run the React app :
+   ```bash
+   npm run dev
+   ```
