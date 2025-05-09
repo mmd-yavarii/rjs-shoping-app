@@ -141,6 +141,17 @@ async function getUserProductsRequest(id) {
   }
 }
 
+// edit product request
+async function editProductsRequest(data) {
+  try {
+    const response = await api.put(`${allProductsEndpoint}/${data.id}`, data);
+    return response;
+  } catch (error) {
+    alert('Failed to load products: ' + error.message);
+    return [];
+  }
+}
+
 export {
   emailValidation,
   passwordValidation,
@@ -156,4 +167,5 @@ export {
   getPendingRequest,
   deleteRequest,
   getUserProductsRequest,
+  editProductsRequest,
 };

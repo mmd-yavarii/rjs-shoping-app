@@ -3,7 +3,7 @@ import { useUserInfo } from '../context/UserProvider';
 import styles from '../styles/Profile.module.scss';
 import { useEffect, useState } from 'react';
 import { BeatLoader } from 'react-spinners';
-import { getUserProductsRequest } from '../helper/functions';
+import { deleteRequest, getUserProductsRequest } from '../helper/functions';
 
 import { Link } from 'react-router-dom';
 
@@ -22,7 +22,7 @@ function Profile() {
       setUserProducts(res);
       setIsLoading(false);
     });
-  }, []);
+  }, [userProducts]);
 
   // logout handler
   function logoutHandler() {
@@ -72,17 +72,25 @@ export default Profile;
 function Cards({ info }) {
   const { id, image, name, category, price, discount } = info;
 
+  // delete an item
+  async function deleteHandler(event) {
+    const confirmation = confirm('Are you sure ?');
+    if (confirmation) {
+      deleteRequest(id).then((res) => alert('Deleted succefully'));
+    }
+  }
+
   return (
     <div className={styles.card}>
       {/* image and controllers  */}
       <div className={styles.imageContainer}>
         <img src={image} alt={name} />
         <div className={styles.controller}>
-          <button>
+          <button onClick={deleteHandler}>
             <FiTrash2 />
           </button>
 
-          <Link to="">
+          <Link to="/edit" state={info}>
             <FiEdit />
           </Link>
         </div>

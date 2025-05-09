@@ -16,26 +16,14 @@
   "pending-products": [],
   "products": [
     {
-      "id": "p2",
-      "name": "Iphone 14 Pro Max",
-      "image": "https://angkormeas.com/wp-content/uploads/2023/12/used_14pm_v4.jpg",
-      "rating": 9.1,
-      "category": "electronics",
-      "price": 1400,
-      "discount": 0,
-      "description": "Apple's flagship smartphone with a sleek design, exceptional camera, and top-tier performance for professionals.",
-      "addedBy": "1"
-    },
-    {
       "id": "p3",
-      "name": "Samsung Galaxy S22",
       "image": "https://angkormeas.com/wp-content/uploads/2023/12/Used_s22_ultra_v2.jpg",
       "rating": 8.9,
+      "name": "Samsung Galaxy S22",
       "category": "electronics",
       "price": 1100,
       "discount": 0.15,
-      "description": "A premium Samsung smartphone featuring a brilliant AMOLED display, powerful camera system, and a special discount.",
-      "addedBy": "1"
+      "description": "A premium Samsung smartphone featuring a brilliant AMOLED display, powerful camera system, and a special discount."
     },
     {
       "id": "p5",
