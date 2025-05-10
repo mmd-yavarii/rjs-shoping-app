@@ -18,21 +18,44 @@ function Home() {
   const search = searchParams.get('search');
   const category = searchParams.get('category');
 
-  const start = useRef();
-  const end = useRef(10);
+  const [start, setStart] = useState(0);
+  const [end, setEnd] = useState(10);
+  const maxHeight = useRef();
+  const hasExecuted = useRef(false);
 
   // fetch products
-  useEffect(() => {
+  async function fetchProducts() {
     setIsLoading(true);
     if (isLoading) return;
 
-    paginateDataRequest(start, end)
-      .then((res) => {
-        res.length && setProducts(res);
-      })
-      .catch((error) => alert(error))
-      .finally(() => setIsLoading(false));
+    try {
+      const response = await paginateDataRequest(start, end);
+      response.length && setProducts((prev) => [...prev, ...response]);
+    } catch (error) {
+      alert(error);
+    } finally {
+      setIsLoading(false);
+    }
+  }
+
+  useEffect(() => {
+    fetchProducts();
   }, [start, end]);
+
+  // checks if the user has scrolled to the bottom of the page
+  function handler() {
+    const position = maxHeight.current.getBoundingClientRect();
+    if (window.innerHeight === position.bottom && !hasExecuted.current) {
+      setStart((prev) => prev + 10);
+      setEnd((prev) => prev + 10);
+      hasExecuted.current = true;
+    }
+  }
+
+  useEffect(() => {
+    window.addEventListener('scroll', handler);
+    return () => window.removeEventListener('scroll', handler);
+  }, []);
 
   // set filters
   useEffect(() => {
@@ -61,9 +84,11 @@ function Home() {
 
       {isLoading && (
         <div className={styles.loader}>
-          <BeatLoader size="0.5rem" />
+          <BeatLoader size="0.6rem" />
         </div>
       )}
+
+      {!isLoading && <div ref={maxHeight}></div>}
     </>
   );
 }
