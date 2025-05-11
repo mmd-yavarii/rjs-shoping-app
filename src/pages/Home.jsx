@@ -5,6 +5,7 @@ import { useSearchParams } from 'react-router-dom';
 import Category from '../components/module/Category';
 
 import styles from '../styles/Home.module.scss';
+
 import Search from '../components/module/Search';
 import { BeatLoader } from 'react-spinners';
 

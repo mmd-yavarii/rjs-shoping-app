@@ -24,6 +24,9 @@
   align-items: center;
   justify-items: center;
 }
+.empty {
+  width: 100%;
+}
 
 @media (max-width: 970px) {
   .productsList {

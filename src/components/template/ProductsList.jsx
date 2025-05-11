@@ -4,7 +4,7 @@ import Empty from './Empty';
 
 function ProductsList({ display }) {
   return (
-    <div className={display.length ? styles.productsList : ''}>
+    <div className={display.length ? styles.productsList : styles.empty}>
       {display.length ? display.map((i, index) => <Card info={i} key={i.id} />) : <Empty />}
     </div>
   );
